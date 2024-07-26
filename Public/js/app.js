@@ -25,32 +25,51 @@ if (user == "sign-up") {
         namelenght = namelenght.split(" ").join("").length
     }
     function specialcharacters() {
-        let fullName;
+        let fullName
         while (true) {
-            fullName = prompt("Enter your Full name");
             if (/[^a-zA-Z ]/.test(fullName)) {
-                alert("Sorry, your name contains special characters");
+                alert("Sorry, your name contains special characters")
             } else {
-                return fullName;
+                return fullName
             }
         }
     }
     specialcharacters()
     // ! Email
-    let email = prompt('Entrez votre email');
+    let email = prompt("Entrez votre email")
     while (email.includes(" ") || email.length < 10 || !email.includes("@")) {
-        email = prompt('Email invalide. Entrez votre email à nouveau');
+        email = prompt("Email invalide. Entrez votre email à nouveau")
     }
 
     for (let cheked of users) {
         if (email === cheked.email) {
-            email = prompt('email existe déjà. Entrez un email unique');
+            email = prompt("email existe déjà. Entrez un email unique")
         }
     }
+
+    // ! Age
     let age = prompt("Enter your Age")
+    while ((age.includes(" ")) || (age == "") || (age.length >= 3) || (age == 0) || (isNaN(age))) {
+        age = prompt("try again")
+    }
+
+
+
+    
     let password = prompt("Enter your password")
 
     let sign = new dataBase(fullName, email, age, password)
     users.push(sign)
     console.table(users)
+
+
+
+
+
+
+
+
+
+
+
 }
