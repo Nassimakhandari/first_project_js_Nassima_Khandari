@@ -13,6 +13,8 @@ let user = prompt("Choose sign-up or login or change the password")
 let fullName = ""
 
 if (user == "sign-up") {
+
+
     // ! Name
     let name = prompt("Enter your Full name")
     let space = name.trim()
@@ -35,6 +37,8 @@ if (user == "sign-up") {
         }
     }
     specialcharacters()
+
+
     // ! Email
     let email = prompt("Entrez votre email")
     while (email.includes(" ") || email.length < 10 || !email.includes("@")) {
@@ -50,14 +54,14 @@ if (user == "sign-up") {
 
     // ! Age
     let age = prompt("Enter your Age")
-    while ((age.includes(" ")) || (age == "") || (age.length >= 3) || (age == 0) || (isNaN(age))) {
+    while ((age.includes(" ")) || (age == "") || (age.length > 2) || (age == 0) || (isNaN(age))) {
         age = prompt("Try Again")
     }
 
 
     // ! Password
     let password = prompt("Enter your password")
-    while ((password.includes(" ")) || (password.length < 7) || password.includes("@" || "#" || "-" || "+" || "*" || "/")) {
+    while ((password.includes(" ")) || (password.length <= 7) || password.includes("@" || "#" || "-" || "+" || "*" || "/")) {
         password = prompt("Mot de passe invalide, try again")
     }
     let sign = new dataBase(fullName, email, age, password)
@@ -65,13 +69,18 @@ if (user == "sign-up") {
     console.table(users)
 
 
-
-
-
-
-
-
-
-
+    //! Password_confirmed
+    function Passwordconfirmed() {
+        while (true) {
+            let confirm = prompt("Confirm your password");
+            if (password === confirm) {
+                return password;
+            } else {
+                alert("Passwords not the same, please try again.");
+            }
+        }
+    }
+    
+    Passwordconfirmed()
 
 }
