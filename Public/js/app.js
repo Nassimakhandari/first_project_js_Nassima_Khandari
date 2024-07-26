@@ -47,17 +47,19 @@ if (user == "sign-up") {
         }
     }
 
+
     // ! Age
     let age = prompt("Enter your Age")
     while ((age.includes(" ")) || (age == "") || (age.length >= 3) || (age == 0) || (isNaN(age))) {
-        age = prompt("try again")
+        age = prompt("Try Again")
     }
 
 
-
-    
+    // ! Password
     let password = prompt("Enter your password")
-
+    while ((password.includes(" ")) || (password.length < 7) || password.includes("@" || "#" || "-" || "+" || "*" || "/")) {
+        password = prompt("Mot de passe invalide, try again")
+    }
     let sign = new dataBase(fullName, email, age, password)
     users.push(sign)
     console.table(users)
