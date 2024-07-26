@@ -80,7 +80,32 @@ if (user == "sign-up") {
             }
         }
     }
-    
+
     Passwordconfirmed()
 
 }
+
+// function logIn(users) {
+//     let email = prompt("Enter your Email").trim().toLowerCase();
+//     let user = users.find(user => user.email === email);
+
+//     if (!user) {
+//         alert("Email not found.");
+//         return;
+//     }
+//     let password = prompt("Enter your Password");
+
+//     if (password === user.password) {
+//         alert("Vous êtes connecté");
+//     } else {
+//         alert("Les informations fournies sont incorrectes");
+//     }
+// }
+// let action = prompt("Choose sign-up or login");
+// if (action === "sign-up") {
+//     signup(users);
+// } else if (action === "login") {
+//     logIn(users);
+// } else {
+//     alert("Invalid choice. Please choose 'sign-up' or 'login'.");
+// }
