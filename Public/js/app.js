@@ -1,5 +1,5 @@
 
-let users = []
+let client = []
 class dataBase {
     constructor(fullName, email, age, password) {
         this.fullName = fullName
@@ -8,6 +8,8 @@ class dataBase {
         this.password = password
     }
 }
+let users = new dataBase("nassima", "nassima@gmail.com", 21, "123456")
+client.push(users)
 let user = prompt("Choose sign-up or login or change the password")
 
 let fullName = ""
@@ -45,7 +47,7 @@ if (user == "sign-up") {
         email = prompt("Email invalide. Entrez votre email à nouveau")
     }
 
-    for (let cheked of users) {
+    for (let cheked of client) {
         if (email === cheked.email) {
             email = prompt("email existe déjà. Entrez un email unique")
         }
@@ -65,8 +67,8 @@ if (user == "sign-up") {
         password = prompt("Mot de passe invalide, try again")
     }
     let sign = new dataBase(fullName, email, age, password)
-    users.push(sign)
-    console.table(users)
+    client.push(sign)
+    console.table(client)
 
 
     //! Password_confirmed
@@ -85,27 +87,27 @@ if (user == "sign-up") {
 
 }
 
-// function logIn(users) {
-//     let email = prompt("Enter your Email").trim().toLowerCase();
-//     let user = users.find(user => user.email === email);
+function logIn(client) {
+    let email = prompt("Enter your Email").trim().toLowerCase();
+    let user = client.find(user => user.email === email);
 
-//     if (!user) {
-//         alert("Email not found.");
-//         return;
-//     }
-//     let password = prompt("Enter your Password");
+    if (!user) {
+        alert("Email not found.");
+        return;
+    }
+    let password = prompt("Enter your Password");
 
-//     if (password === user.password) {
-//         alert("Vous êtes connecté");
-//     } else {
-//         alert("Les informations fournies sont incorrectes");
-//     }
-// }
-// let action = prompt("Choose sign-up or login");
-// if (action === "sign-up") {
-//     signup(users);
-// } else if (action === "login") {
-//     logIn(users);
-// } else {
-//     alert("Invalid choice. Please choose 'sign-up' or 'login'.");
-// }
+    if (password === user.password) {
+        alert("Vous êtes connecté");
+    } else {
+        alert("Les informations fournies sont incorrectes");
+    }
+}
+let action = prompt("Choose sign-up or login");
+if (action === "sign-up") {
+    signup(client);
+} else if (action === "login") {
+    logIn(client);
+} else {
+    alert("Invalid choice. Please choose 'sign-up' or 'login'.");
+}
