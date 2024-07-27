@@ -1,5 +1,6 @@
 
 let client = []
+
 class dataBase {
     constructor(fullName, email, age, password) {
         this.fullName = fullName
@@ -8,11 +9,16 @@ class dataBase {
         this.password = password
     }
 }
+
 let users = new dataBase("nassima", "nassima@gmail.com", 21, "123456")
+
 client.push(users)
+
 let user = prompt("Choose sign-up or login or change the password")
 
 let fullName = ""
+
+// *sign-up
 
 if (user == "sign-up") {
 
@@ -41,6 +47,7 @@ if (user == "sign-up") {
     specialcharacters()
 
 
+
     // ! Email
     let email = prompt("Entrez votre email")
     while (email.includes(" ") || email.length < 10 || !email.includes("@")) {
@@ -54,11 +61,15 @@ if (user == "sign-up") {
     }
 
 
+
+
     // ! Age
     let age = prompt("Enter your Age")
     while ((age.includes(" ")) || (age == "") || (age.length > 2) || (age == 0) || (isNaN(age))) {
         age = prompt("Try Again")
     }
+
+
 
 
     // ! Password
@@ -69,6 +80,7 @@ if (user == "sign-up") {
     let sign = new dataBase(fullName, email, age, password)
     client.push(sign)
     console.table(client)
+
 
 
     //! Password_confirmed
@@ -86,6 +98,9 @@ if (user == "sign-up") {
     Passwordconfirmed()
 
 }
+
+
+           // *login
 
 function logIn(client) {
     let email = prompt("Enter your Email").trim().toLowerCase();
